@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2020 at 10:19 PM
+-- Generation Time: Aug 09, 2020 at 10:30 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -89,7 +89,6 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`id`, `name`, `route`, `status`, `ts_create`) VALUES
-(2, '123111', 'images/ba7adfae-b765-4720-b574-a0dd39323b61.jpeg', 1, '2020-08-08 17:11:02'),
 (6, '', 'images/04a377bd-3d10-45f0-b0dd-822113fb73f4.jpeg', 1, '2020-08-09 17:03:14'),
 (7, '', 'images/89c37c3b-2b05-4058-85b4-35f0e257f34f.jpeg', 1, '2020-08-09 17:03:21'),
 (8, 'Foto3', 'images/81c039ed-1285-4fb0-b332-0c174c1bfdb2.jpeg', 1, '2020-08-09 17:03:48'),
