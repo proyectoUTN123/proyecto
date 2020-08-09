@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Art School | Contacts</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/style.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/grid_12.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/slider.css">
+<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:400,700' rel='stylesheet' type='text/css'>
+<script src="/javascripts/jquery-1.7.min.js"></script>
+<script src="/javascripts/jquery.easing.1.3.js"></script>
+<script src="/javascripts/tms-0.4.1.js"></script>
+<script>
+$(document)
+    .ready(function () {
+    $('.slider')
+        ._TMS({
+        show: 0,
+        pauseOnHover: true,
+        prevBu: '.prev',
+        nextBu: '.next',
+        playBu: false,
+        duration: 800,
+        preset: 'fade',
+        pagination: true,
+        pagNums: false,
+        slideshow: 7000,
+        numStatus: false,
+        banners: false,
+        waitBannerAnimation: false,
+        progressBar: false
+    })
+});
+</script>
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body>
+<div class="main">
+  <!--==============================header=================================-->
+  <header>
+    <h1><a href="/"><img src="images/logo.png" alt=""></a></h1>
+    <nav>
+      <div id="slide">
+        <div class="slider">
+          <ul class="items">
+            <li><img src="/images/slider-1.jpg" alt=""></li>
+            <li><img src="/images/slider-2.jpg" alt=""></li>
+            <li><img src="/images/slider-3.jpg" alt=""></li>
+          </ul>
+        </div>
+        <a href="#" class="prev"></a><a href="#" class="next"></a> </div>
+      <ul class="menu">
+        <li><a href="/" class="clr-1">Inicio</a></li>
+        <li><a href="about" class="clr-2">Info</a></li>
+        <li><a href="login" target="_blank" class="clr-3">Usuario</a></li>
+        <li><a href="gallery" target="_blank" class="clr-4">Galeria</a></li>
+        <li class="current"><a href="contacts" class="clr-5">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!--==============================content================================-->
+  <section id="content">
+    <div class="container_12">
+      <div class="grid_4 bot-1">
+        <h2 class="top-6">Encontranos!</h2>
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.5290648184696!2d-58.71474078416466!3d-34.413314054956665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca1956c50c9d1%3A0x6cd0c92f7783d9bd!2sMitre%20998-900%2C%20B1621FJT%20Benavidez%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1596915496673!5m2!1ses-419!2sar" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <dl>
+          <dt>Calle Falsa 123, <br>
+            Springfield.</dt>
+          <dd><span>Telefono: </span>15-555-5555</dd>
+          <dd><span>Mail: </span><a href="#" class="link">mail@mail.com</a></dd>
+        </dl>
+      </div>
+      <div class="grid_8">
+        <div class="block-1 top-5">
+          <div class="block-1-shadow">
+            <h2 class="clr-6">Envianos tu consulta!</h2>
+            <form id="form" method="post" action="/contacts">
+              <fieldset>
+                <label><strong>Nombre:</strong>
+                  <input type="text" value="" name="nombre">
+                  <strong class="clear"></strong></label>
+                <label><strong>Mail:</strong>
+                  <input type="text" value="" name="mail">
+                  <strong class="clear"></strong></label>
+                <label><strong>Telefono:</strong>
+                  <input type="text" value="" name="telefono">
+                  <strong class="clear"></strong></label>
+                <label><strong>Consulta:</strong>
+                  <textarea name="consulta"></textarea>
+                  <strong class="clear"></strong></label>
+                <strong class="clear"></strong>
+                <div class="btns pad-2"><a href="#" class="link-2">Borrar</a>
+                <button type="submit" href="/" class="link-2" style="border: none">Enviar</button></div>
+              </fieldset>
+            </form>
+            <h5 class="text-success text-center">{{message}}</h5>
+          </div>
+        </div>
+        <!--==============================footer=================================-->
+        <footer>
+          <p>© 2012 Art School</p>
+          <p>Website Template by <a target="_blank" href="http://www.templatemonster.com/" class="link">TemplateMonster.com</a></p>
+        </footer>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

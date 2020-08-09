@@ -1,0 +1,94 @@
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Panel de Administrador </div>
+      <div class="list-group list-group-flush">
+        <a href="/admin/userpanel" class="list-group-item list-group-item-action bg-light">Administrar Usuarios</a>
+        <a href="/admin/coursepanel" class="list-group-item list-group-item-action bg-light">Administrar Cursos</a>
+        <a href="/admin/imagepanel" class="list-group-item list-group-item-action bg-light">Cargar Imagenes</a>
+        <a href="/admin/imagepanel/all" class="list-group-item list-group-item-action bg-light">Borrar Imagenes</a>
+
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">Ocultar Menu</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <div class="container" style="margin-top:10vh;">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="mb-5">Administrar Usuarios</h4>            
+            <table class="table table-hover table-responsive mt-5 text-center">
+                <thead>
+                    <h6>Lista de usuarios registrados</h6>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>Admin?</th>
+                        <th>Activo?</th>
+                        <th></th>
+                        <th></th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each usuarios}}
+                    <tr>
+                        <td>{{username}}</td>
+                        <td>{{name}}</td>
+                        <td>{{lastname}}</td>
+                        <td>{{mail}}</td>
+                        <td>{{isadmin}}</td>
+                        <td>{{status}}</td>
+                        <td><a href="/admin/userpanel/change/{{id}}/{{isadmin}}"><i class="fas fa-cogs text-primary pr-3 pl-3">Convertir a admin</i></a></td>
+                        {{!-- /admin/productos/baja/4 --}}
+                        <td><a href="/admin/userpanel/baja/{{id}}/{{status}}"><i class="fas fa-trash text-danger pr-3 pl-3" style="cursor: pointer;">Desactivar/Activar</i></a>
+                        </td>
+                    </tr>
+                    {{!--  XMLHTTPRequest  --}}
+                    {{/each}}
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/jquery/jquery.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>

@@ -1,0 +1,98 @@
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="/stylesheets/comentarios.css" rel="stylesheet">
+<!------ Include the above in your HEAD tag ---------->
+<div class="container" >
+<img src="/{{imagen.route}}" class="commentary-image" style="margin-left:auto; margin-right:auto;">
+</div>
+<div class="container">
+    {{#each row}}
+	<div class="row" style="display:block;";>
+		 <div class="media comment-box">
+             
+            <div class="media-body">               
+                <div class="media">
+                   
+                    <div class="media-body">
+                        <h4 class="media-heading">{{name}}</h4>
+                        <p>{{comment_text}}</p>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+	</div>
+     {{/each}}
+</div>
+<div class="container">
+<div class="row bootstrap snippets">
+    <div class="col-md-12 col-sm-12" style="padding:0; margin-top:3vh;">
+        <div class="comment-wrapper">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Deja tu comentario!
+                </div>
+                <form class="panel-body" id="comentarioForm">
+                    <input type="text" name="of_image" id="of_image"style="visibility:hidden;"value="{{imagen.id}}">
+                    <input id="comment_text" name="comment_text"class="form-control" placeholder="Escribi tu comentario..." rows="3">
+                    <br>
+                    <button type="button" id="botonComentar" class="btn btn-info pull-right">Comentar</button>
+                    <div class="clearfix"></div>                   
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>         
+<script>
+    // document
+    // window -> 
+    // listener (evento, callback/funcion)
+    window.addEventListener('load', () => {
+        console.log("Cargado..")
+        document.getElementById('botonComentar').addEventListener('click', botonApretado);
+    });
+
+    const botonApretado = () => {
+        const datos = new URLSearchParams(new FormData(document.getElementById('comentarioForm')));
+        // fetch
+        fetch('/comentarios/:id', {
+            
+            method: 'POST',
+            body: datos,
+            
+        })
+            .then(response => response.json())
+            .then(data => message(data));
+    }
+
+    const message = (datos) => {
+        if (datos.success == true) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Comentario realizado! 🤞',
+                
+                showConfirmButton: false,
+            })
+            window.setTimeout(function(){ 
+             location.reload();
+            } ,1200);
+            
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Oops... Ocurrio un error 🤣',
+                showConfirmButton: true,
+            })
+            
+        }
+    }
+    
+    
+
+</script>
